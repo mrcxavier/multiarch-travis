@@ -12,20 +12,7 @@ jobs:
     - stage: x86_64 Image 
       arch: amd64
       script: chmod +x ./build.sh; ./build.sh  
-
   include: 
     - stage: ppc64le Image 
       arch: ppc64le
       script: chmod +x ./build.sh; ./build.sh  
-      #
-      #  include: 
-      #    - stage: x86_64 Image 
-      #      arch: amd64
-      #      script: chmod +x ./build.sh; ./build.sh  
-      #
-      #  include: 
-      #    - stage: x86_64 Image 
-      #      arch: amd64
-      #      script: chmod +x ./build.sh; ./build.sh  
-
-
