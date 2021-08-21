@@ -16,11 +16,4 @@ jobs:
    - stage: Building ppc64le Image 
      arch: ppc64le
      script: chmod +x ./build.sh; ./build.sh  
-  include: 
-   - stage: run x86_64 image
-     arch: amd64
-     script: docker pull quay.io/repository/marcioas/multiarch-travis:latest; docker run --rm quay.io/repository/marcioas/multiarch-travis:latest 
-  include: 
-   - stage: run ppc64le Image 
-     arch: ppc64le
-     script: docker pull quay.io/repository/marcioas/multiarch-travis:latest; docker run --rm quay.io/repository/marcioas/multiarch-travis:latest
+
