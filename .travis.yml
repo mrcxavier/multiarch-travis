@@ -18,3 +18,7 @@ jobs:
      arch: amd64
      script: chmod +x ./build.sh; ./build.sh  
 
+  include: 
+   - stage: Run amd64
+     arch: amd64 
+     script: docker pull quay.io/repository/marcioas/multiarch-travis:latest 
