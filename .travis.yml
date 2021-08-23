@@ -2,12 +2,17 @@ language: bash
 
 os: linux
 
-dist: bionic
-
 services: 
   - docker 
 
+dist: bionic
+
 jobs: 
+  include: 
+   - stage: ppc64le
+     arch: Building ppc64le
+     script: chmod +x ./build.sh; ./build.sh
+
   include: 
    - stage: Building x86_64 Image 
      arch: amd64
