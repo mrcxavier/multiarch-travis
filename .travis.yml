@@ -18,7 +18,18 @@ jobs:
      arch: amd64
      script: chmod +x ./build.sh; ./build.sh  
 
-  include: 
+   - stage: multi-arch image
+     arch: ppc64le
+     script: chmod +x ./manif-mult-arch.sh; ./manif-mult-arch.sh
+   
    - stage: Run amd64
      arch: amd64 
      script: docker pull quay.io/repository/marcioas/multiarch-travis:latest 
+   
+   - stage: run x86_64 image
+     arch: amd64
+     script: docker pull quay.io/marcioas/multi-arch-travis:latest; docker run --rm quay.io/marcioas/multiarch-travis:latest
+  
+   - stage: run ppc64le image
+     arch: ppc64le
+     script: docker pull quay.io/marcioas/multi-arch-travis:latest; docker run --rm quay.io/marcioas/multiarch-travis:latest
