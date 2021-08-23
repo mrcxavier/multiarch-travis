@@ -24,7 +24,7 @@ jobs:
    
    - stage: Run amd64
      arch: amd64 
-     script: docker pull quay.io/repository/marcioas/multiarch-travis:latest 
+     script: docker pull quay.io/marcioas/multiarch-travis:latest 
    
    - stage: run x86_64 image
      arch: amd64
