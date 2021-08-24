@@ -6,7 +6,7 @@ services:
   - docker 
 
 before_install: 
-  - sudo apt-get install buildah
+  - sudo apt-get install -y buildah
 
 dist: bionic
 
