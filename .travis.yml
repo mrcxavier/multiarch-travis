@@ -1,0 +1,34 @@
+language: bash
+
+os: linux
+
+services: 
+  - docker 
+
+before_install: 
+  - sudo apt-get update
+
+dist: bionic
+
+jobs: 
+  include: 
+   - stage: Building ppc64le
+     arch: ppc64le
+     script: chmod +x ./build.sh; ./build.sh
+
+  include: 
+   - stage: Building x86_64 Image 
+     arch: amd64
+     script: chmod +x ./build.sh; ./build.sh  
+
+   - stage: multi-arch image
+     arch: ppc64le
+     script: chmod +x ./manif-mult-arch.sh; ./manif-mult-arch.sh
+   
+   - stage: run x86_64 image
+     arch: amd64
+     script: docker pull quay.io/marcioas/multiarch-travis:latest; docker run --rm quay.io/marcioas/multiarch-travis:latest
+  
+   - stage: run ppc64le image
+     arch: ppc64le
+     script: docker pull quay.io/marcioas/multiarch-travis:latest; docker run --rm quay.io/marcioas/multiarch-travis:latest
